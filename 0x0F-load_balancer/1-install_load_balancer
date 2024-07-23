@@ -40,8 +40,8 @@ frontend dagmawittibebu-tech-frontend
 
 backend dagmawittibebu-tech-backend
     balance roundrobin
-    server 1879-web-01 18.204.10.39 check
-    server 1879-web-02 54.236.45.209 check
+    server 1879-web-01 18.204.10.39:80 check
+    server 1879-web-02 54.236.45.209:80 check
 "
 
 # shellcheck disable=SC2154
