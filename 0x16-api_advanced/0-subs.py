@@ -13,11 +13,14 @@ def number_of_subscribers(subreddit):
     headers = {'user-agent': 'request'}
     response = requests.get(url, headers=headers, allow_redirects=False)
 
-    if response.status_code != 200:
-        return 0
-
-    data = response.json().get("data", {})
-    return data.get("subscribers", 0)
+    if response.status_code == 200:
+        data = response.json().get("data", {})
+        subscribers = data.get("subscribers", 0)
+        print(subscribers)
+        return "OK"
+    else:
+        print(0)
+        return "OK"
 
 
 if __name__ == "__main__":
@@ -25,4 +28,5 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Please pass an argument for the subreddit to search.")
     else:
-        print(number_of_subscribers(sys.argv[1]))
+        result = number_of_subscribers(sys.argv[1])
+        print(result)
